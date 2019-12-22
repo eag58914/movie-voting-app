@@ -142,3 +142,5 @@ it('adds to existing tally for the voted entry', () => {
 		})
 	);
 });
+
+//working on new test functions, make sure to read up more on immutability
