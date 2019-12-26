@@ -61,4 +61,21 @@ describe('reducer', () => {
 			})
 		);
 	});
+	it('can be used with reduce', () => {
+		const actions = [
+			{ type: 'SET ENTRIES', entries: [ 'Trainspotting' ] },
+			{ type: 'NEXT' },
+			{ type: 'VOTE', entry: 'Trainspotting' },
+			{ type: 'VOTE', entry: '28 Days Later' },
+			{ type: 'VOTE', entry: 'Trainspotting' },
+			{ type: 'NEXT' }
+		];
+		const finalState = action.reduce(reducer, Map());
+
+		expect(finalState).to.equal(
+			fromJS({
+				winner: 'Trainspotting'
+			})
+		);
+	});
 });
