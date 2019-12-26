@@ -116,6 +116,20 @@ describe('vote', () => {
 		})
 	);
 });
+it('creates a tally for the voted entry', () => {
+	const state = Map({
+		pair: List.of('Trainspotting', '28 Days Later')
+	});
+	const nextState = vote(state, 'Trainspotting');
+	expect(nextState).to.equal(
+		Map({
+			pair: List.of('Trainspotting', '28 Days Later'),
+			tally: Map({
+				Trainspotting: 1
+			})
+		})
+	);
+});
 
 it('adds to existing tally for the voted entry', () => {
 	const state = Map({
@@ -125,8 +139,7 @@ it('adds to existing tally for the voted entry', () => {
 				Trainspotting: 3,
 				'28 Days Later': 2
 			})
-		}),
-		entries: List()
+		})
 	});
 	const nextState = vote(state, 'Trainspotting');
 	expect(nextState).to.equal(
