@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"start": "babel-node index.js",
 		"test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js",
 		"test:watch": "npm run test -- --watch"
 	},
@@ -19,9 +20,7 @@
 		"mocha": "^6.2.2"
 	},
 	"babel": {
-		"presets": [
-			"es2015"
-		]
+		"presets": [ "es2015" ]
 	},
 	"dependencies": {
 		"immutable": "^4.0.0-rc.12",
